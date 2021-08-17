@@ -32,11 +32,13 @@ app.post('/posts/:id/comments', async(req, res) => {
    }
  })
 
- app.post('/events', (req,res)=>{
+
+ res.status(201).json(comments);
+})
+
+app.post('/events', (req,res)=>{
   console.log('Recieved Event', req.body.type);
   res.status(200).send({});
-})
- res.status(201).json(comments);
 })
 app.listen(4001, () => {
   console.log('Comments listening on port 4001!');

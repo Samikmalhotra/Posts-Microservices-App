@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 
 app.post('/events', async(req,res)=>{
-    let event = req.body;
+    const event = req.body;
     console.log(event);
     await axios.post('http://localhost:4000/events', event)
     await axios.post('http://localhost:4001/events', event)
