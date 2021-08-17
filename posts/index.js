@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 
 const app = express();
 
@@ -13,12 +14,20 @@ app.get('/posts', (req, res) => {
   res.json(posts);
 })
 
-app.post('/posts', (req, res) => {
+app.post('/posts', async(req, res) => {
   const id = uuidv4();
   const {title} = req.body;
   posts[id] = {
     id,title
   }
+
+  await axios.post('http://localhost:4005/events', {
+    type: 'PostCreated',
+    data: {
+      id, title
+    }
+  });
+
   res.status(200).json(posts[id]);
 })
 
