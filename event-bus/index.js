@@ -15,6 +15,8 @@ app.post('/events', async(req,res)=>{
     res.json({status: 'OK'});
 })
 
+
+
 app.listen(4005, () => {
     console.log('Event Bus is listening on port 4005!');
 })
