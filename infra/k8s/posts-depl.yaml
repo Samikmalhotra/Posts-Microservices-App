@@ -15,4 +15,20 @@ spec:
       containers:
       - name: posts
         image: samikmalhotra/posts:0.0.1
-        
+---
+# YAML data
+# Path: infra/k8s/posts-svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: event-bus-svc
+spec:
+  selector:
+    app: event-bus
+  type: ClusterIP
+  ports:
+    - name: event-bus
+      protocol: TCP
+      port: 4005
+      targetPort: 4005
+   
