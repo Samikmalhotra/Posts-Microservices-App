@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: event-bus-depl
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: event-bus
@@ -14,9 +15,8 @@ spec:
       containers:
       - name: event-bus
         image: samikmalhotra/event-bus
+       
 ---
-# YAML data
-# Path: infra/k8s/event-bus-svc.yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -24,8 +24,7 @@ metadata:
 spec:
   selector:
     app: event-bus
-  type: ClusterIP
-  ports:
+  ports:  
     - name: event-bus
       protocol: TCP
       port: 4005
