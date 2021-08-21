@@ -1,3 +1,3 @@
-# Posts-Microservuces-App
+# Posts-Microservices-App
 
-A simple posts app made with a microservices architecture in react and nodejs using docker and kubernetes
+A simple posts app made with a microservices architecture in react and nodejs using docker and kubernetes.
